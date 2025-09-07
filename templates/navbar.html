@@ -1,0 +1,90 @@
+{% load static %}
+
+<style>
+
+    /* Navbar base */
+    nav {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1rem 2rem; background:white; color:#6c1a0a;
+      position:sticky; top:0; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+    nav .logo-wrapper { display:flex; align-items:center; gap:0.5rem; }
+    nav .logo-img { width:40px; height:40px; object-fit:cover; }
+    nav .logo-text {
+      font-size: 1.3rem;
+      font-weight: 700;
+      
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav ul.nav-links { display:flex; list-style:none; gap:1.5rem; }
+    nav ul.nav-links li a { color:#204720; font-weight:600; transition:0.3s; }
+    nav ul.nav-links li a:hover { color:#9ae6b4; }
+    nav .btns { display:flex; gap:0.8rem; }
+    nav .btn { border:0px solid #98a8a5; padding:0.5rem 1rem; border-radius:8px; font-weight:600; transition:all 0.3s; color:#0a6c56; }
+    nav .btn:hover { background:#0a6c56; color:white; }
+    nav .menu { display:none; font-size:1.8rem; cursor:pointer; color:#0a6c56; }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed; top:0; left:-250px; width:250px; height:100%;
+      background:white; color:#0a6c56; padding:2rem 1rem;
+      display:flex; flex-direction:column; gap:1.5rem;
+      transition:left 0.3s ease-in-out; z-index:2000;
+      box-shadow:2px 0 10px rgba(0,0,0,0.1);
+    }
+    .mobile-menu.show { left:0; }
+    .mobile-menu a { color:#0a6c56; font-weight:600; font-size:1.1rem; }
+    .mobile-menu .buttons { margin-top:auto; display:flex; flex-direction:column; gap:0.8rem; }
+    .mobile-menu .btn { border:2px solid #0a6c56; padding:0.7rem; border-radius:8px; text-align:center; font-weight:600; color:#0a6c56; }
+    .mobile-menu .btn:hover { background:#0a6c56; color:white; }
+
+    /* Responsive */
+    @media(max-width:768px){
+      nav ul.nav-links, nav .btns { display:none; }
+      nav .menu { display:block; }
+    }
+
+</style>
+<nav>
+  <div class="logo-wrapper">
+    <img src="{% static 'img/logo.png' %}" class="logo-img" alt="Logo">
+    <div class="logo-text">Brilliant Mind Academy</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#tutors">Our Tutors</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+ <div class="btns flex gap-4">
+    <a href="#" class="btn px-4 py-2 rounded text-white 
+                 bg-gradient-to-r from-green-500 to-green-700 
+                 hover:from-green-600 hover:to-green-800 
+                 border-0 transition" style="color: white;">
+    Sign Up
+  </a>
+  <a href="#" 
+   class="px-4 py-2 rounded text-gray-800 border-2 border-green-500 
+          bg-white hover:bg-green-50 hover:border-green-600 transition-all duration-300">
+  Login
+</a>
+
+
+</div>
+
+  <div class="menu" id="menu">&#9776;</div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#tutors">Our Tutors</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#contact">Contact</a>
+  <div class="buttons">
+    <a href="#" class="btn">Login</a>
+    <a href="#" class="btn">Sign Up</a>
+  </div>
+</div>
